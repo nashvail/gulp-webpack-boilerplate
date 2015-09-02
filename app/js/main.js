@@ -1,4 +1,4 @@
-// Require the sass file
-require('../sass/main.sass');
+// That is great the thing is working 
+var lib = require('./lib.js');
 
-console.log("This thing is working fine");
+console.log(lib.square(8));

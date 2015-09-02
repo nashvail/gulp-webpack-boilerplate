@@ -44,18 +44,26 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// Require the sass file
-	"use strict";
+	// That is great the thing is working
+	'use strict';
 
-	__webpack_require__(1);
+	var lib = __webpack_require__(1);
 
-	console.log("This thing is working fine");
+	console.log(lib.square(2));
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	"use strict";
+
+	function square(x) {
+		return x * x;
+	}
+
+	module.exports = {
+		square: square
+	};
 
 /***/ }
 /******/ ]);
