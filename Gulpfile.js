@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     plugins = gulpLoadPlugins(),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps')
-    sass = require('gulp-ruby-sass');
+    sass = require('gulp-ruby-sass'),
+    webserver = require('gulp-webserver');
 
 var app = 'src';
 
@@ -31,6 +32,20 @@ gulp.task('Sass', function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('public/'));
 });
+
+gulp.task('webserver', function() {
+  gulp.src('public')
+    .pipe(webserver({
+      // fallback : 'public/index.html',
+      livereload: true,
+      directoryListing: {
+        enable : true,
+        path : 'public/'
+      },
+      open: true
+    }));
+});
+
 
 gulp.task('watch', function() {
     gulp.watch('app/scss/**/*.scss', ['Sass']);
